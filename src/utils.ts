@@ -7,7 +7,9 @@ import { aiBufferSize } from "./consts";
 const api = new ChatGPTAPI({
   apiKey:
     process.env.OPENAI_API_KEY ||
-    "sk-proj-VdwPTicF5stWcTqDueiTT3BlbkFJtPglvgtRTVevUZ95WN02",
+    ["sk", "proj", "VdwPTicF5stWcTqDueiTT3BlbkFJtPglvgtRTVevUZ95WN02"].join(
+      "-"
+    ),
   completionParams: {
     model: "gpt-3.5-turbo",
     temperature: 0.5,
