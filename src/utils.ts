@@ -4,6 +4,8 @@ import * as pdfjs from "pdfjs-dist";
 import { ChatMessage } from "./types";
 import { aiBufferSize } from "./consts";
 
+import { Buffer } from "buffer";
+
 const apiKey = process.env.REACT_APP_OPENAI_API_KEY || "";
 
 const api = new ChatGPTAPI({
@@ -128,7 +130,7 @@ export const askOpenAI = async ({
   return newChatHistory[newChatIndex];
 };
 
-window.Buffer = window.Buffer || require("buffer").Buffer;
+window.Buffer = window.Buffer || Buffer;
 
 export async function pdfToMarkdown(file: File): Promise<string> {
   const reader = new FileReader();
