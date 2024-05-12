@@ -158,9 +158,9 @@ export async function pdfToMarkdown(file: File): Promise<string> {
     const page = await doc.getPage(i);
     const content = await page.getTextContent();
 
-    content.items.forEach((item) => {
+    for (const item of content.items) {
       markdown += (item as any).str + "\n";
-    });
+    }
 
     markdown += "\n\n";
   }

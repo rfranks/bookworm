@@ -142,7 +142,16 @@ export default function FileUploader(props: FileUploaderProps) {
         // field.onChange(validFiles);
       }
     },
-    [files, limit, maxFileSize]
+    [
+      files,
+      limit,
+      maxFileSize,
+      fileErrors,
+      onChange,
+      outputType,
+      value,
+      variant,
+    ]
   );
 
   const fileRemove = (file: File) => {
@@ -189,6 +198,8 @@ export default function FileUploader(props: FileUploaderProps) {
       } else if (accept.includes("/")) {
         const extension = accept.split("/")[1];
         return extension.toUpperCase();
+      } else {
+        return accept.toUpperCase();
       }
     });
 
