@@ -4,12 +4,10 @@ import * as pdfjs from "pdfjs-dist";
 import { ChatMessage } from "./types";
 import { aiBufferSize } from "./consts";
 
+const apiKey = process.env.REACT_APP_OPENAI_API_KEY || "";
+
 const api = new ChatGPTAPI({
-  apiKey:
-    process.env.OPENAI_API_KEY ||
-    ["sk", "proj", "VdwPTicF5stWcTqDueiTT3BlbkFJtPglvgtRTVevUZ95WN02"].join(
-      "-"
-    ),
+  apiKey,
   completionParams: {
     model: "gpt-3.5-turbo",
     temperature: 0.5,
